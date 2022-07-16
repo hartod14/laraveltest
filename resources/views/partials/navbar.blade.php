@@ -16,11 +16,36 @@
                     <a class="nav-link {{($title === "Posts") ? 'active' :''}}" href="/posts">Blog</a>
                 </li>
             </ul>
+
+
+            <ul class="navbar-nav ms-auto">
+                @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Welcome back, {{ auth()->user()->name }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">My Dashboard</a></li>
+                        <hr class="dropdown-divider">
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                Logout
+                            </button>
+                        </form>
+                    </ul>
+
+                </li>
+            </ul>
+            @else
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a href="/login" class="nav-link">Login</a>
                 </li>
             </ul>
+            @endauth
+            </ul>
+
         </div>
     </div>
 </nav>
