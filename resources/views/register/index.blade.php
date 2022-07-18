@@ -24,7 +24,7 @@
             @enderror
         </div>
         <div class="form-floating">
-            <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{old('name')}}">
+            <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{old('email')}}">
             <label for="email">Email address</label>
             @error('email')
             <div id="validationServerUsernameFeedback" class="invalid-feedback">
